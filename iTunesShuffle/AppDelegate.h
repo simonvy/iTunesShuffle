@@ -8,8 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    NSStatusItem *statusItem;
+    NSArray *choices;
+}
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (void)shuffleTrack: (id)sender;
+- (void)play: (id)sender;
 
 @end

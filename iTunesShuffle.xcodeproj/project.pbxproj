@@ -13,6 +13,9 @@
 		E082E53514EEA282003E76DF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E082E53314EEA282003E76DF /* Credits.rtf */; };
 		E082E53814EEA282003E76DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E082E53714EEA282003E76DF /* AppDelegate.m */; };
 		E082E53B14EEA282003E76DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082E53914EEA282003E76DF /* MainMenu.xib */; };
+		E082E54D14EEABF6003E76DF /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E082E54C14EEABF6003E76DF /* ScriptingBridge.framework */; };
+		E082E57514EEBB23003E76DF /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = E082E57414EEBB23003E76DF /* icon2.png */; };
+		E082E57714EEBED8003E76DF /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E082E57614EEBED8003E76DF /* icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,18 @@
 		E082E52714EEA282003E76DF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		E082E52814EEA282003E76DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E082E52914EEA282003E76DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E082E52C14EEA282003E76DF /* iTunesShuffle-Info.plist */ = {isa = PBXFileReference; path = "iTunesShuffle-Info.plist"; sourceTree = "<group>"; };
+		E082E52C14EEA282003E76DF /* iTunesShuffle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesShuffle-Info.plist"; sourceTree = "<group>"; };
 		E082E52E14EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E082E53014EEA282003E76DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E082E53214EEA282003E76DF /* iTunesShuffle-Prefix.pch */ = {isa = PBXFileReference; path = "iTunesShuffle-Prefix.pch"; sourceTree = "<group>"; };
+		E082E53214EEA282003E76DF /* iTunesShuffle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTunesShuffle-Prefix.pch"; sourceTree = "<group>"; };
 		E082E53414EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		E082E53614EEA282003E76DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		E082E53614EEA282003E76DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E082E53714EEA282003E76DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E082E53A14EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E082E54B14EEA969003E76DF /* iTunes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		E082E54C14EEABF6003E76DF /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		E082E57414EEBB23003E76DF /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
+		E082E57614EEBED8003E76DF /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E082E54D14EEABF6003E76DF /* ScriptingBridge.framework in Frameworks */,
 				E082E52514EEA282003E76DF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +54,8 @@
 		E082E51514EEA282003E76DF = {
 			isa = PBXGroup;
 			children = (
+				E082E57614EEBED8003E76DF /* icon.icns */,
+				E082E54C14EEABF6003E76DF /* ScriptingBridge.framework */,
 				E082E52A14EEA282003E76DF /* iTunesShuffle */,
 				E082E52314EEA282003E76DF /* Frameworks */,
 				E082E52114EEA282003E76DF /* Products */,
@@ -82,6 +92,8 @@
 		E082E52A14EEA282003E76DF /* iTunesShuffle */ = {
 			isa = PBXGroup;
 			children = (
+				E082E57414EEBB23003E76DF /* icon2.png */,
+				E082E54B14EEA969003E76DF /* iTunes.h */,
 				E082E53614EEA282003E76DF /* AppDelegate.h */,
 				E082E53714EEA282003E76DF /* AppDelegate.m */,
 				E082E53914EEA282003E76DF /* MainMenu.xib */,
@@ -155,6 +167,8 @@
 				E082E52F14EEA282003E76DF /* InfoPlist.strings in Resources */,
 				E082E53514EEA282003E76DF /* Credits.rtf in Resources */,
 				E082E53B14EEA282003E76DF /* MainMenu.xib in Resources */,
+				E082E57514EEBB23003E76DF /* icon2.png in Resources */,
+				E082E57714EEBED8003E76DF /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +302,7 @@
 				E082E54014EEA282003E76DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
