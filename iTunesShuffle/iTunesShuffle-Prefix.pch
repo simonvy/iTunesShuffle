@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'iTunesShuffle' target in the 'iTunesShuffle' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

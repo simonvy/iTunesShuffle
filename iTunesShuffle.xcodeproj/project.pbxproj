@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E082E52514EEA282003E76DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E082E52414EEA282003E76DF /* Cocoa.framework */; };
+		E082E52F14EEA282003E76DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E082E52D14EEA282003E76DF /* InfoPlist.strings */; };
+		E082E53114EEA282003E76DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E082E53014EEA282003E76DF /* main.m */; };
+		E082E53514EEA282003E76DF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E082E53314EEA282003E76DF /* Credits.rtf */; };
+		E082E53814EEA282003E76DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E082E53714EEA282003E76DF /* AppDelegate.m */; };
+		E082E53B14EEA282003E76DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E082E53914EEA282003E76DF /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E082E52014EEA282003E76DF /* iTunesShuffle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesShuffle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E082E52414EEA282003E76DF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E082E52714EEA282003E76DF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E082E52814EEA282003E76DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E082E52914EEA282003E76DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E082E52C14EEA282003E76DF /* iTunesShuffle-Info.plist */ = {isa = PBXFileReference; path = "iTunesShuffle-Info.plist"; sourceTree = "<group>"; };
+		E082E52E14EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E082E53014EEA282003E76DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E082E53214EEA282003E76DF /* iTunesShuffle-Prefix.pch */ = {isa = PBXFileReference; path = "iTunesShuffle-Prefix.pch"; sourceTree = "<group>"; };
+		E082E53414EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E082E53614EEA282003E76DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		E082E53714EEA282003E76DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E082E53A14EEA282003E76DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E082E51D14EEA282003E76DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E082E52514EEA282003E76DF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E082E51514EEA282003E76DF = {
+			isa = PBXGroup;
+			children = (
+				E082E52A14EEA282003E76DF /* iTunesShuffle */,
+				E082E52314EEA282003E76DF /* Frameworks */,
+				E082E52114EEA282003E76DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E082E52114EEA282003E76DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E082E52014EEA282003E76DF /* iTunesShuffle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E082E52314EEA282003E76DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E082E52414EEA282003E76DF /* Cocoa.framework */,
+				E082E52614EEA282003E76DF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E082E52614EEA282003E76DF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E082E52714EEA282003E76DF /* AppKit.framework */,
+				E082E52814EEA282003E76DF /* CoreData.framework */,
+				E082E52914EEA282003E76DF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E082E52A14EEA282003E76DF /* iTunesShuffle */ = {
+			isa = PBXGroup;
+			children = (
+				E082E53614EEA282003E76DF /* AppDelegate.h */,
+				E082E53714EEA282003E76DF /* AppDelegate.m */,
+				E082E53914EEA282003E76DF /* MainMenu.xib */,
+				E082E52B14EEA282003E76DF /* Supporting Files */,
+			);
+			path = iTunesShuffle;
+			sourceTree = "<group>";
+		};
+		E082E52B14EEA282003E76DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E082E52C14EEA282003E76DF /* iTunesShuffle-Info.plist */,
+				E082E52D14EEA282003E76DF /* InfoPlist.strings */,
+				E082E53014EEA282003E76DF /* main.m */,
+				E082E53214EEA282003E76DF /* iTunesShuffle-Prefix.pch */,
+				E082E53314EEA282003E76DF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E082E51F14EEA282003E76DF /* iTunesShuffle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E082E53E14EEA282003E76DF /* Build configuration list for PBXNativeTarget "iTunesShuffle" */;
+			buildPhases = (
+				E082E51C14EEA282003E76DF /* Sources */,
+				E082E51D14EEA282003E76DF /* Frameworks */,
+				E082E51E14EEA282003E76DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTunesShuffle;
+			productName = iTunesShuffle;
+			productReference = E082E52014EEA282003E76DF /* iTunesShuffle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E082E51714EEA282003E76DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = E082E51A14EEA282003E76DF /* Build configuration list for PBXProject "iTunesShuffle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E082E51514EEA282003E76DF;
+			productRefGroup = E082E52114EEA282003E76DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E082E51F14EEA282003E76DF /* iTunesShuffle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E082E51E14EEA282003E76DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E082E52F14EEA282003E76DF /* InfoPlist.strings in Resources */,
+				E082E53514EEA282003E76DF /* Credits.rtf in Resources */,
+				E082E53B14EEA282003E76DF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E082E51C14EEA282003E76DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E082E53114EEA282003E76DF /* main.m in Sources */,
+				E082E53814EEA282003E76DF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E082E52D14EEA282003E76DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E082E52E14EEA282003E76DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E082E53314EEA282003E76DF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E082E53414EEA282003E76DF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E082E53914EEA282003E76DF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E082E53A14EEA282003E76DF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E082E53C14EEA282003E76DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E082E53D14EEA282003E76DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E082E53F14EEA282003E76DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesShuffle/iTunesShuffle-Prefix.pch";
+				INFOPLIST_FILE = "iTunesShuffle/iTunesShuffle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E082E54014EEA282003E76DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesShuffle/iTunesShuffle-Prefix.pch";
+				INFOPLIST_FILE = "iTunesShuffle/iTunesShuffle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E082E51A14EEA282003E76DF /* Build configuration list for PBXProject "iTunesShuffle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E082E53C14EEA282003E76DF /* Debug */,
+				E082E53D14EEA282003E76DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E082E53E14EEA282003E76DF /* Build configuration list for PBXNativeTarget "iTunesShuffle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E082E53F14EEA282003E76DF /* Debug */,
+				E082E54014EEA282003E76DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E082E51714EEA282003E76DF /* Project object */;
+}
