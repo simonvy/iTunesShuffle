@@ -7,6 +7,7 @@
 //
 
 #import "StatusItemView.h"
+#import "iTunes.h"
 
 @implementation StatusItemView
 
@@ -36,12 +37,20 @@
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
-    [NSApp sendAction: self.action to: self.target from: self];
+    if (theEvent.modifierFlags & NSCommandKeyMask) {
+        // if command + left click, then pause/play the current track
+        iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
+        if (iTunes.isRunning) {
+            [iTunes playpause];
+        }
+    } else {
+        [NSApp sendAction: self.action to: self.target from: self];
+    }
 }
 
 - (void)rightMouseDown:(NSEvent *)theEvent {
     if (theEvent.modifierFlags & NSCommandKeyMask) {
-        // if command + right click, then quit the all
+        // if command + right click, then quit the app
         [NSApp terminate:self];
     } else {
         [NSApp sendAction: self.rightAction to: self.target from: self];
