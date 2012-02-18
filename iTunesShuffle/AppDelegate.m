@@ -14,6 +14,11 @@
 @synthesize window = _window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    tracks = nil;
+    // timer will be triggered every 10 minutes
+    timer = [NSTimer timerWithTimeInterval:60 * 10 target:self selector:@selector(updateTracks:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer: timer forMode: NSDefaultRunLoopMode];
+    [self updateTracks: nil];
     
     srand((unsigned int)time(NULL));
     
@@ -34,7 +39,9 @@
     NSUInteger numberOfChoice = 10;
     
     iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-    NSArray *tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+    if (tracks == nil || !iTunes.isRunning) {
+        tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+    }
     
     NSUInteger total = [tracks count];
     if (total * 0.2 < numberOfChoice) {
@@ -50,7 +57,7 @@
         if (++randomTime >= numberOfChoice * 10) { // randomly pick at most numberOfChoice * 10 times.
             break;
         }
-        NSUInteger i = arc4random() % numberOfChoice;
+        NSUInteger i = arc4random() % [tracks count];
         iTunesTrack *track = [tracks objectAtIndex: i];
         
         BOOL duplicate = NO;
@@ -93,6 +100,13 @@
     NSUInteger index = [menu.keyEquivalent integerValue];
     iTunesTrack *track = [choices objectAtIndex: index];
     [track playOnce: NO];
+}
+
+- (void) updateTracks: (id)sender {
+    iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
+    if (iTunes.isRunning) {
+        tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+    }
 }
 
 @end
