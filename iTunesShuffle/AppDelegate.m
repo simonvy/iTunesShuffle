@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "iTunes.h"
+#import "StatusItemView.h"
 
 @implementation AppDelegate
 
@@ -22,20 +23,18 @@
     
     srand((unsigned int)time(NULL));
     
-    NSString *iconPath = [[NSBundle mainBundle] pathForImageResource:@"icon2.png"];
-    NSImage *icon = [[NSImage alloc] initByReferencingFile: iconPath];
-    
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     CGFloat thickness = [statusBar thickness];
     statusItem = [statusBar statusItemWithLength: NSSquareStatusItemLength];
-    icon.size = NSMakeSize(thickness, thickness);
-    [statusItem setImage: icon];
-    [statusItem setHighlightMode: YES];
-    [statusItem setAction: @selector(shuffleTrack:)];
-    [statusItem setTarget: self];
+
+    StatusItemView *view = [[StatusItemView alloc] initWithFrame: NSMakeRect(0, 0, thickness, thickness) withStatusItem: statusItem];
+    view.target = self;
+    view.action = @selector(shuffleTrack:);
+    view.rightAction = @selector(shuffleTrack:);
+    [statusItem setView: view];
 }
 
-- (void) shuffleTrack: (id) sender {
+- (void) shuffleTrack: (id) sender {    
     NSUInteger numberOfChoice = 10;
     
     iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
@@ -90,6 +89,7 @@
         [shuffleMenu addItem: item];
     }
     
+    shuffleMenu.delegate = sender;
     choices = options;
     
     [statusItem popUpStatusItemMenu: shuffleMenu];

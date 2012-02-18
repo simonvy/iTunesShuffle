@@ -16,6 +16,7 @@
 		E082E54D14EEABF6003E76DF /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E082E54C14EEABF6003E76DF /* ScriptingBridge.framework */; };
 		E082E57514EEBB23003E76DF /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = E082E57414EEBB23003E76DF /* icon2.png */; };
 		E082E57714EEBED8003E76DF /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E082E57614EEBED8003E76DF /* icon.icns */; };
+		E092725C14EFBAE6004DE28D /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E092725B14EFBAE6004DE28D /* StatusItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		E082E54C14EEABF6003E76DF /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		E082E57414EEBB23003E76DF /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		E082E57614EEBED8003E76DF /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		E092725A14EFBAE6004DE28D /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
+		E092725B14EFBAE6004DE28D /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				E082E53714EEA282003E76DF /* AppDelegate.m */,
 				E082E53914EEA282003E76DF /* MainMenu.xib */,
 				E082E52B14EEA282003E76DF /* Supporting Files */,
+				E092725A14EFBAE6004DE28D /* StatusItemView.h */,
+				E092725B14EFBAE6004DE28D /* StatusItemView.m */,
 			);
 			path = iTunesShuffle;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			files = (
 				E082E53114EEA282003E76DF /* main.m in Sources */,
 				E082E53814EEA282003E76DF /* AppDelegate.m in Sources */,
+				E092725C14EFBAE6004DE28D /* StatusItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
