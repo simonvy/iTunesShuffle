@@ -34,6 +34,10 @@
     [statusItem setView: view];
 }
 
+- (void) applicationWillTerminate:(NSNotification *)notification {
+    [[NSStatusBar systemStatusBar] removeStatusItem: statusItem];
+}
+
 - (void) shuffleTrack: (id) sender {    
     NSUInteger numberOfChoice = 10;
     
@@ -100,6 +104,9 @@
     NSUInteger index = [menu.keyEquivalent integerValue];
     iTunesTrack *track = [choices objectAtIndex: index];
     [track playOnce: NO];
+    if (track.rating <= 95) {
+        track.rating = track.rating + 5;
+    }
 }
 
 - (void) updateTracks: (id)sender {
