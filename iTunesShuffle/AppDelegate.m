@@ -104,8 +104,17 @@
     NSUInteger index = [menu.keyEquivalent integerValue];
     iTunesTrack *track = [choices objectAtIndex: index];
     [track playOnce: NO];
-    if (track.rating <= 95) {
-        track.rating = track.rating + 5;
+    
+    // increase the rating.
+    NSInteger oldRating = track.rating;
+    NSInteger newRating = oldRating + 5;
+    
+    if (newRating > 100) {
+        newRating = 100;
+    }
+    
+    if (oldRating != newRating) {
+        track.rating = newRating;
     }
 }
 
