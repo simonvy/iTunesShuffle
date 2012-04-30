@@ -11,10 +11,8 @@
 
 @implementation StatusItemView
 
-@synthesize target;
-@synthesize action;
-@synthesize rightAction;
-@synthesize statusItem;
+@synthesize rightAction = _rightAction;
+@synthesize statusItem = _statusItem;
 
 - (id)initWithFrame:(NSRect)frame withStatusItem: (NSStatusItem *) sitem {
     self = [super initWithFrame:frame];

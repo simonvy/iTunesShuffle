@@ -9,74 +9,43 @@
 #import "AppDelegate.h"
 #import "iTunes.h"
 #import "StatusItemView.h"
+#import "TrackLibrary.h"
+
+@interface AppDelegate ()
+
+@property (nonatomic, retain) NSStatusItem *statusItem;
+@property (nonatomic, retain) TrackLibrary *trackLibrary;
+
+- (void)shuffleTrack: (id)sender;
+- (void)play: (NSMenuItem *)sender;
+
+
+@end
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize trackLibrary = _trackLibrary;
+@synthesize statusItem = _statusItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    tracks = nil;
-    // timer will be triggered every 10 minutes
-    timer = [NSTimer timerWithTimeInterval:60 * 10 target:self selector:@selector(updateTracks:) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer: timer forMode: NSDefaultRunLoopMode];
-    [self updateTracks: nil];
+    CGFloat thickness = [[NSStatusBar systemStatusBar] thickness];
+    NSRect frame = NSMakeRect(0, 0, thickness, thickness);
     
-    srand((unsigned int)time(NULL));
-    
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    CGFloat thickness = [statusBar thickness];
-    statusItem = [statusBar statusItemWithLength: NSSquareStatusItemLength];
-
-    StatusItemView *view = [[StatusItemView alloc] initWithFrame: NSMakeRect(0, 0, thickness, thickness) withStatusItem: statusItem];
+    StatusItemView *view = [[StatusItemView alloc] initWithFrame: frame withStatusItem: self.statusItem];
     view.target = self;
     view.action = @selector(shuffleTrack:);
     view.rightAction = @selector(shuffleTrack:);
-    [statusItem setView: view];
+    [self.statusItem setView: view];
 }
 
 - (void) applicationWillTerminate:(NSNotification *)notification {
-    [[NSStatusBar systemStatusBar] removeStatusItem: statusItem];
+    [[NSStatusBar systemStatusBar] removeStatusItem: self.statusItem];
 }
 
 - (void) shuffleTrack: (id) sender {    
-    NSUInteger numberOfChoice = 10;
-    
-    iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-    if (tracks == nil || !iTunes.isRunning) {
-        tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
-    }
-    
-    NSUInteger total = [tracks count];
-    if (total * 0.2 < numberOfChoice) {
-        numberOfChoice = (NSUInteger)(total * 0.1);
-        if (numberOfChoice == 0 && total != 0) {
-            numberOfChoice = 1;
-        }
-    }
-    
-    NSUInteger randomTime = 0;
-    NSMutableArray *options = [NSMutableArray arrayWithCapacity: numberOfChoice];
-    while([options count] < numberOfChoice) {
-        if (++randomTime >= numberOfChoice * 10) { // randomly pick at most numberOfChoice * 10 times.
-            break;
-        }
-        NSUInteger i = arc4random() % [tracks count];
-        iTunesTrack *track = [tracks objectAtIndex: i];
-        
-        BOOL duplicate = NO;
-        for (iTunesTrack *it in options) {
-            if (it.id == track.id) {
-                duplicate = YES;
-                break;
-            }
-        }
-        
-        if (!duplicate) {
-            [options addObject: track];
-        }
-    }
-    
     NSMenu *shuffleMenu = [[NSMenu alloc] initWithTitle: @"Shuffle"];
+    NSArray *options = [self.trackLibrary getRandomTracks];
     
     if ([options count] > 0) {
         for (NSUInteger i = 0; i < [options count]; i++) {
@@ -85,6 +54,7 @@
             NSMenuItem *item = [[NSMenuItem alloc] initWithTitle: track.name action: @selector(play:) keyEquivalent: keyEquiv];
             [item setTarget: self];
             [item setEnabled: YES];
+            item.representedObject = track;
             [shuffleMenu addItem: item];
         }
     } else {
@@ -94,15 +64,12 @@
     }
     
     shuffleMenu.delegate = sender;
-    choices = options;
     
-    [statusItem popUpStatusItemMenu: shuffleMenu];
+    [self.statusItem popUpStatusItemMenu: shuffleMenu];
 }
 
-- (void) play: (id)sender {
-    NSMenuItem *menu = (NSMenuItem *)sender;
-    NSUInteger index = [menu.keyEquivalent integerValue];
-    iTunesTrack *track = [choices objectAtIndex: index];
+- (void) play: (NSMenuItem *)sender {
+    iTunesTrack *track = (iTunesTrack *)sender.representedObject;
     [track playOnce: NO];
     
     // increase the rating.
@@ -118,11 +85,20 @@
     }
 }
 
-- (void) updateTracks: (id)sender {
-    iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-    if (iTunes.isRunning) {
-        tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+- (TrackLibrary *) trackLibrary
+{
+    if (!_trackLibrary) {
+        self.trackLibrary = [TrackLibrary new];
     }
+    return _trackLibrary;
+}
+
+- (NSStatusItem *) statusItem
+{
+    if (!_statusItem) {
+        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSSquareStatusItemLength]; 
+    }
+    return _statusItem;
 }
 
 @end
