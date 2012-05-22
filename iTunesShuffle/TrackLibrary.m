@@ -11,7 +11,7 @@
 
 @interface TrackLibrary ()
 
-@property (nonatomic, retain) NSArray *tracks;
+@property (retain) NSArray *tracks;
 - (void) updateTracks: (id) sender;
 
 @end
@@ -38,7 +38,7 @@
     }
 }
 
-- (NSArray *) getRandomTracks
+- (NSArray *) randomTracks
 {
     NSUInteger numberOfChoice = 10;
     
@@ -75,11 +75,16 @@
     return options;
 }
 
+- (void)setTracks:(NSArray *)tracks
+{
+    _tracks = tracks;
+}
+
 - (NSArray *) tracks
 {
     if (!_tracks) {
         iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-        self.tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+        _tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
     }
     
     return _tracks;

@@ -8,14 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface StatusItemView : NSImageView <NSMenuDelegate> {
-    
-    BOOL isMenuVisible;
-}
+@protocol StatusItemViewDelegate <NSObject>
 
-- (id) initWithFrame:(NSRect)frameRect withStatusItem: (NSStatusItem *)sitem;
+- (void) leftClicked: (NSEvent *)e;
+- (void) rightClicked: (NSEvent *)e;
+- (void) drawStatusItem;
 
-@property (assign) SEL rightAction;
-@property (retain) NSStatusItem *statusItem;
+@end
+
+
+@interface StatusItemView : NSImageView
+
+@property (retain) id<StatusItemViewDelegate> delegate;
 
 @end

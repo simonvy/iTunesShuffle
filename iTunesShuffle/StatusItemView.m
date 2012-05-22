@@ -7,59 +7,43 @@
 //
 
 #import "StatusItemView.h"
-#import "iTunes.h"
 
 @implementation StatusItemView
 
-@synthesize rightAction = _rightAction;
-@synthesize statusItem = _statusItem;
+@synthesize delegate = _delegate;
 
-- (id)initWithFrame:(NSRect)frame withStatusItem: (NSStatusItem *) sitem {
-    self = [super initWithFrame:frame];
+- (id)initWithFrame:(NSRect)frameRect
+{
+    self = [super initWithFrame:frameRect];
     
     if (self) {
-        isMenuVisible = NO;
-        self.statusItem = sitem;
         NSString *iconPath = [[NSBundle mainBundle] pathForImageResource:@"icon2.png"];
         NSImage *icon = [[NSImage alloc] initByReferencingFile: iconPath];
-        icon.size = NSMakeSize(frame.size.width, frame.size.height);
+        icon.size = NSMakeSize(frameRect.size.width, frameRect.size.height);
         [self setImage: icon];
     }
     
     return self;
 }
 
-- (void) drawRect:(NSRect)dirtyRect {
-    [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight: isMenuVisible];
-    [super drawRect: dirtyRect];
-}
-
 - (void)mouseDown:(NSEvent *)theEvent {
-    [NSApp sendAction: self.action to: self.target from: self];
-}
-
-- (void)rightMouseDown:(NSEvent *)theEvent {
-    if (theEvent.modifierFlags & NSCommandKeyMask) {
-        // if command + right click, then quit the app
-        [NSApp terminate:self];
-    } else {
-        // pause/play the current track
-        iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-        if (iTunes.isRunning) {
-            [iTunes playpause];
-        }
+    if ([self.delegate respondsToSelector:@selector(leftClicked:)]) {
+        [self.delegate performSelector:@selector(leftClicked:) withObject: theEvent];
     }
 }
 
-- (void) menuWillOpen:(NSMenu *)menu {
-    isMenuVisible = YES;
-    [self setNeedsDisplay];
+- (void)rightMouseDown:(NSEvent *)theEvent {
+    if ([self.delegate respondsToSelector:@selector(rightClicked:)]) {
+        [self.delegate performSelector:@selector(rightClicked:) withObject:theEvent];
+    }
 }
 
-- (void) menuDidClose:(NSMenu *)menu {
-    isMenuVisible = NO;
-    [self setNeedsDisplay];
+- (void)drawRect:(NSRect)dirtyRect
+{
+    if ([self.delegate respondsToSelector:@selector(drawStatusItem)]) {
+        [self.delegate performSelector:@selector(drawStatusItem)];
+    }
+    [super drawRect: dirtyRect];
 }
-
 
 @end

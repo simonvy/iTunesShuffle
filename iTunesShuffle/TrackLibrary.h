@@ -10,6 +10,6 @@
 
 @interface TrackLibrary : NSObject
 
-- (NSArray *) getRandomTracks;
+- (NSArray *) randomTracks;
 
 @end
