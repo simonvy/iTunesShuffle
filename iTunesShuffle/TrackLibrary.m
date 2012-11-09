@@ -57,7 +57,7 @@
             break;
         }
         NSUInteger i = arc4random() % [self.tracks count];
-        iTunesTrack *track = [self.tracks objectAtIndex: i];
+        iTunesTrack *track = (self.tracks)[i];
         
         BOOL duplicate = NO;
         for (iTunesTrack *it in options) {

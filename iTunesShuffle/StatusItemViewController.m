@@ -38,7 +38,7 @@
     
     if (options.count > 0) {
         for (NSUInteger i = 0; i < options.count; i++) {
-            iTunesTrack *track = [options objectAtIndex: i];
+            iTunesTrack *track = options[i];
             NSString *keyEquiv = [NSString stringWithFormat: @"%lu", i];
             NSMenuItem *item = [[NSMenuItem alloc] initWithTitle: track.name action: @selector(play:) keyEquivalent: keyEquiv];
             [item setTarget: self];
