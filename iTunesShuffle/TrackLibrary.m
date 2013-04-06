@@ -12,18 +12,19 @@
 @interface TrackLibrary ()
 
 @property (retain) NSArray *tracks;
+@property (retain) NSLock *mutex;
+
 - (void) updateTracks: (id) sender;
 
 @end
 
 @implementation TrackLibrary
 
-@synthesize tracks = _tracks;
-
 - (id) init
 {
     self = [super init];
     if (self) {
+        self.mutex = [NSLock new];
         [NSTimer scheduledTimerWithTimeInterval:600 target:self selector:@selector(updateTracks:) userInfo:nil repeats:YES];
         [self updateTracks: nil];
         srand((unsigned int)time(NULL));
@@ -34,7 +35,11 @@
 - (void) updateTracks: (id)sender {
     iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
     if (iTunes.isRunning) {
-        self.tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+        NSArray *tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
+        
+        [self.mutex lock];
+        self.tracks = tracks;
+        [self.mutex unlock];
     }
 }
 
@@ -42,7 +47,10 @@
 {
     NSUInteger numberOfChoice = 10;
     
-    NSUInteger total = [self.tracks count];
+    [self.mutex lock];
+    
+    NSUInteger total = self.tracks.count;
+    
     if (total * 0.2 < numberOfChoice) {
         numberOfChoice = (NSUInteger)(total * 0.1);
         if (numberOfChoice == 0 && total != 0) {
@@ -72,22 +80,9 @@
         }
     }
     
-    return options;
-}
-
-- (void)setTracks:(NSArray *)tracks
-{
-    _tracks = tracks;
-}
-
-- (NSArray *) tracks
-{
-    if (!_tracks) {
-        iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
-        _tracks = [iTunes valueForKeyPath:@"sources.@distinctUnionOfArrays.playlists.@distinctUnionOfArrays.tracks"];
-    }
+    [self.mutex unlock];
     
-    return _tracks;
+    return options;
 }
 
 @end

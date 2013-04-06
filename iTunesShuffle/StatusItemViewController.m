@@ -20,8 +20,6 @@
 @implementation StatusItemViewController
 
 @synthesize trackLibrary = _trackLibrary;
-@synthesize statusItem = _statusItem;
-@synthesize isMenuOpen = _isMenuOpen;
 
 - (TrackLibrary *)trackLibrary
 {

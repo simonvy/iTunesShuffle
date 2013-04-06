@@ -10,8 +10,6 @@
 
 @implementation StatusItemView
 
-@synthesize delegate = _delegate;
-
 - (id)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];

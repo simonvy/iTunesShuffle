@@ -18,9 +18,6 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize statusItemViewController = _statusItemViewController;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     CGFloat thickness = [[NSStatusBar systemStatusBar] thickness];
