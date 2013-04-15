@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E00AB932154EBCEA00F69DE2 /* TrackLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E00AB931154EBCEA00F69DE2 /* TrackLibrary.m */; };
+		E04BC047171BB1EA00FF3BA5 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E04BC046171BB1E900FF3BA5 /* icon.icns */; };
 		E0753657156BCB1000FC2BAB /* StatusItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0753656156BCB1000FC2BAB /* StatusItemViewController.m */; };
 		E075365F156BDCFF00FC2BAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0753661156BDCFF00FC2BAB /* Localizable.strings */; };
 		E082E52514EEA282003E76DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E082E52414EEA282003E76DF /* Cocoa.framework */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		E00AB930154EBCEA00F69DE2 /* TrackLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackLibrary.h; sourceTree = "<group>"; };
 		E00AB931154EBCEA00F69DE2 /* TrackLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackLibrary.m; sourceTree = "<group>"; };
+		E04BC046171BB1E900FF3BA5 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		E0753655156BCB1000FC2BAB /* StatusItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemViewController.h; sourceTree = "<group>"; };
 		E0753656156BCB1000FC2BAB /* StatusItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemViewController.m; sourceTree = "<group>"; };
 		E0753660156BDCFF00FC2BAB /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		E082E52A14EEA282003E76DF /* iTunesShuffle */ = {
 			isa = PBXGroup;
 			children = (
+				E04BC046171BB1E900FF3BA5 /* icon.icns */,
 				E082E57414EEBB23003E76DF /* icon2.png */,
 				E082E54B14EEA969003E76DF /* iTunes.h */,
 				E082E53614EEA282003E76DF /* AppDelegate.h */,
@@ -186,6 +189,7 @@
 				E082E53B14EEA282003E76DF /* MainMenu.xib in Resources */,
 				E082E57514EEBB23003E76DF /* icon2.png in Resources */,
 				E075365F156BDCFF00FC2BAB /* Localizable.strings in Resources */,
+				E04BC047171BB1EA00FF3BA5 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
