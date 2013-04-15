@@ -20,15 +20,15 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    CGFloat thickness = [[NSStatusBar systemStatusBar] thickness];
-    NSRect frame = NSMakeRect(0, 0, thickness, thickness);
+    NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSSquareStatusItemLength];
     
-    StatusItemView *view = [[StatusItemView alloc] initWithFrame: frame];
+    CGFloat thickness = [[NSStatusBar systemStatusBar] thickness];
+    StatusItemView *view = [[StatusItemView alloc] initWithFrame: NSMakeRect(0, 0, thickness, thickness)];
     
     self.statusItemViewController.view = view;
     view.delegate = self.statusItemViewController;
     
-    NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSSquareStatusItemLength];
+    
     self.statusItemViewController.statusItem = statusItem;
     
     [statusItem setView: view];
